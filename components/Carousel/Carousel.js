@@ -17,3 +17,76 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+var carouselContainer = document.querySelector('.carousel-container');
+
+function carouselCreator() {
+  // create elements
+  const newCarousel = document.createElement('div'),
+  carouselInner = document.createElement('div'),
+  item1 = document.createElement('div'),
+  item2 = document.createElement('div'),
+  item3 = document.createElement('div'),
+  item4 = document.createElement('div'),
+  image1 = document.createElement('img'),
+  image2 = document.createElement('img'),
+  image3 = document.createElement('img'),
+  image4 = document.createElement('img'),
+  leftButton = document.createElement('a'),
+  rightButton = document.createElement('a');
+
+  // classes
+  newCarousel.classList.add('carousel');
+  newCarousel.classList.add('slide');
+  carouselInner.classList.add('carousel-inner');
+  item1.classList.add('carousel-item');
+  item1.classList.add('active');
+  item2.classList.add('carousel-item');
+  item3.classList.add('carousel-item');
+  item4.classList.add('carousel-item');
+  image1.classList.add('d-block');
+  image1.classList.add('w-100');
+  image2.classList.add('d-block');
+  image2.classList.add('w-100');
+  image3.classList.add('d-block');
+  image3.classList.add('w-100');
+  image4.classList.add('d-block');
+  image4.classList.add('w-100');
+  leftButton.classList.add('left-button');
+  rightButton.classList.add('right-button');
+  leftButton.classList.add('carousel-control-prev');
+  rightButton.classList.add('carousel-control-next');
+
+  // properties
+  newCarousel.setAttribute("data-ride","carousel");
+  newCarousel.id = 'newCarousel';
+  leftButton.textContent = " < ";
+  rightButton.textContent = " > ";
+  leftButton.setAttribute("data-slide","prev");
+  rightButton.setAttribute("data-slide","next");
+  leftButton.setAttribute("role","button");
+  rightButton.setAttribute("role","button");
+  leftButton.setAttribute("href","#newCarousel");
+  rightButton.setAttribute("href","#newCarousel");
+  image1.src = "./assets/carousel/mountains.jpeg";
+  image2.src = "./assets/carousel/computer.jpeg";
+  image3.src = "./assets/carousel/trees.jpeg";
+  image4.src = "./assets/carousel/turntable.jpeg";
+
+  //structure
+  newCarousel.appendChild(carouselInner);
+  carouselInner.appendChild(item1);
+  carouselInner.appendChild(item2);
+  carouselInner.appendChild(item3);
+  carouselInner.appendChild(item4);
+  item1.appendChild(image1);
+  item2.appendChild(image2);
+  item3.appendChild(image3);
+  item4.appendChild(image4);
+  newCarousel.appendChild(leftButton);
+  newCarousel.appendChild(rightButton);
+
+  return newCarousel;
+}
+
+carouselContainer.appendChild(carouselCreator());
